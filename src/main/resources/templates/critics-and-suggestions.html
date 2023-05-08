@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>انتقادات</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body style="background-image: url(https://cdn.dribbble.com/users/740188/screenshots/11467544/media/c767c489d2ee39590d36a5234c5eaedc.gif);background-size:100% ">
+<div th:insert="fragments/header :: header"></div>
+<div class="container my-5">
+  <h3>Critics and suggestions</h3>
+  <div class="ui-icon">
+    <div class="card-body">
+      <div class="col-md-8">
+        <form action="#" th:action="@{/criticsAndSuggestions}" th:object="${criticsAndSuggestions}"
+              method="post">
+          <div class="row">
+            <div class="form-group col-md-8">
+              <label for="user" class="col-form-label">to</label>
+              <select th:field="*{user}" class="form-control">
+                <option th:each="user: ${user}" th:value="${user.id}" th:text="${user.userName}"></option>
+              </select>
+            </div>
+
+            <div class="form-group col-md-8">
+              <label for="subject" class="col-form-label">subject </label>
+              <input type="text" th:field="*{subject}" class="form-control" id="subject"
+                     placeholder="subject"/>
+            </div>
+            <div class="form-group col-md-8">
+              <textarea rows="6" cols="30" type="text" th:field="*{text}" class="form-control" id="text"
+                        placeholder="text"></textarea>
+            </div>
+
+            <div class="form-group col-md-8">
+              <input type="submit" class="btn btn-primary" value=" Submit ">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div th:insert="fragments/footer :: footer"></div>
+</body>
+</html>

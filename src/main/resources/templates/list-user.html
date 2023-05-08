@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>کاربران</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body style="background-image: url(https://img.freepik.com/free-vector/green-monstera-leaves-with-copy-space-vector_53876-111532.jpg?w=1380&t=st=1681645503~exp=1681646103~hmac=d792a0cc47c639d998c68eaa0206f95ad9500e46aa878b1e29bbd2d4b5fc4f0a);background-size:110% ">
+<div th:insert="fragments/header :: header"></div>
+<div class="container my-2">
+    <div class="card">
+        <div class="ui-icon">
+            <div th:switch="${users}" class="container my-5">
+                <p class="ui-icon">
+                <form th:action="@{/searchCustomer}" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" name="keyword" id="keyword" type="text" placeholder="Search"
+                           aria-label="Search" th:value="${keyword}">
+                    <input class="btn btn-outline-success active my-2 my-sm-0" type="submit" value="Search"/>
+                    <a th:href="@{/customer/export/excel}" class="btn btn-unique">
+                        <i class="fa fa-download"> Export Excel </i></a>
+                </form>
+                </p>
+                <div class="col-md-30">
+                    <div th:case="*">
+                        <table class="table">
+                            <thead style="background-color:#36454F; color: aliceblue;">
+                            <tr>
+                                <th>نام</th>
+                                <th>نام خانوادگی</th>
+                                <th>کدپرسنلی</th>
+                                <th>نام کاربری</th>
+                                <th>ایمیل</th>
+                                <th>تعداد روز </th>
+                                <th>تعداد ساعت</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="users: ${listUsers}">
+                                <td th:text="${users.firstName}"></td>
+                                <td th:text="${users.lastName}"></td>
+                                <td th:text="${users.personnelCode}"></td>
+                                <td th:text="${users.userName}"></td>
+                                <td th:text="${users.email}"></td>
+                                <td th:text="${users.totalDays}"></td>
+                                <td th:text="${users.totalHours}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div th:if="${totalPages > 1}">
+                            Total Items: [[${totalItems}]]
+
+
+                            <a class="btn btn-outline-primary" th:if="${currentPage > 1}"
+                               th:href="@{'/customers/page/' + ${currentPage - 1}}">Previous-</a>
+                            <span class="btn btn-outline-primary" th:unless="${currentPage > 1}">Previous</span>
+
+
+                            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+			<a class="btn btn-outline-primary" th:if="${currentPage != i}" th:href="@{'/customers/page/' + ${i} }">[[${i}]]</a>
+			<span class="btn btn-outline-primary" th:unless="${currentPage != i}">[[${i}]]</span>
+		</span>
+
+                            <a class="btn btn-outline-primary" th:if="${currentPage < totalPages}"
+                               th:href="@{'/customers/page/' + ${currentPage + 1} }">Next</a>
+                            <span class="btn btn-outline-primary" th:unless="${currentPage < totalPages}">Next</span>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="fragments/footer :: footer"></div>
+</body>
+
+</html>

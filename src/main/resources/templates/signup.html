@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>افزودن کاربر</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<body style="background-image: url(https://cdn.dribbble.com/users/1107512/screenshots/3997677/media/37f1bcbcdd3818bec18999802c6ed4b8.gif);background-size:100% "
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:insert="fragments/header :: header"></div>
+<div class="container my-5">
+    <h3>افزودن کاربر</h3>
+    <div class="ui-icon">
+        <div class="ui-icon">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/registerProcess}" th:object="${user}"
+                      method="post">
+                    <div class="row">
+                        <div class="form-group col-md-7">
+                            <label for="personnelCode" class="col-form-label">کدپرسنلی</label>
+                            <input type="number" th:field="*{personnelCode}" class="form-control" id="personnelCode"
+                                   placeholder="کدپرسنلی"/>
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="userName" class="col-form-label">نام کاربری</label>
+                            <input type="text" th:field="*{userName}" class="form-control" id="userName"
+                                   placeholder="نام کاربری"/>
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="password" class="col-form-label">کلمه عبور</label>
+                            <input type="password" th:field="*{password}" class="form-control" id="password"
+                                   placeholder="کلمه عبور"/>
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="email" class="col-form-label">ایمیل</label>
+                            <input type="email" th:field="*{email}" class="form-control" id="email" placeholder="ایمیل"/>
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="firstName" class="col-form-label">نام</label>
+                            <input type="text" th:field="*{firstName}" class="form-control" id="firstName"
+                                   placeholder="نام"/>
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="lastName" class="col-form-label">نام خانوادگی</label>
+                            <input type="text" th:field="*{lastName}" class="form-control" id="lastName"
+                                   placeholder="نام خانوادگی"/>
+                        </div>
+                        <div class="form-group col-md-7">
+                            <label for="role" class="col-form-label">نقش سازمانی</label>
+                            <select th:field ="*{role}" class="form-control" >
+                                <option value="Manager">Manager</option>
+                                <option value="Employee">Employee</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:insert="fragments/footer :: footer"></div>
+</body>
+</html>

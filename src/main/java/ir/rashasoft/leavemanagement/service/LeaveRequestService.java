@@ -131,7 +131,7 @@ public class LeaveRequestService {
         leaveRequest.setRequestStatus(RequestStatus.inProgress);
         this.save(leaveRequest);
         try {
-            emailService.send("ali.smi80@gmail.com", " درخواست مرخصی :" + leaveRequest.getUser().getFirstName() + " - " + leaveRequest.getUser().getLastName()
+            emailService.send("zhina.dr@gmail.com", " درخواست مرخصی :" + leaveRequest.getUser().getFirstName() + " - " + leaveRequest.getUser().getLastName()
                     , " " + leaveRequest.getUser().getFirstName() +" : نام " +"\n" +
                              leaveRequest.getUser().getLastName() +" : نام خانوادگی "+ "\n" +
                               leaveRequest.getUser().getPersonnelCode() +": کد پرسنلی " + "\n" +
@@ -152,7 +152,7 @@ public class LeaveRequestService {
         leaveRequest.setRequestStatus(RequestStatus.inProgress);
         this.save(leaveRequest);
         try {
-            emailService.send("ali.smi80@gmail.com", " درخواست مرخصی :" + leaveRequest.getUser().getFirstName() + " - " + leaveRequest.getUser().getLastName()
+            emailService.send("zhina.dr@gmail.com", " درخواست مرخصی :" + leaveRequest.getUser().getFirstName() + " - " + leaveRequest.getUser().getLastName()
                     , " " + leaveRequest.getUser().getFirstName() +" : نام " +"\n" +
                             leaveRequest.getUser().getLastName() +" : نام خانوادگی "+ "\n" +
                             leaveRequest.getUser().getPersonnelCode() +": کد پرسنلی " + "\n" +

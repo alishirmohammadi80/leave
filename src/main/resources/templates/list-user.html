@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
 <body style="background-image: url(https://img.freepik.com/free-vector/green-monstera-leaves-with-copy-space-vector_53876-111532.jpg?w=1380&t=st=1681645503~exp=1681646103~hmac=d792a0cc47c639d998c68eaa0206f95ad9500e46aa878b1e29bbd2d4b5fc4f0a);background-size:110% ">
-<div th:insert="fragments/header :: header"></div>
+<div th:insert="fragments/manager-header :: header"></div>
 <div class="container my-2">
     <div class="card">
         <div class="ui-icon">
@@ -49,26 +49,24 @@
                             </tr>
                             </tbody>
                         </table>
-                        <div th:if="${totalPages > 1}">
-                            Total Items: [[${totalItems}]]
+<!--                        <div th:if="${totalPages > 1}">-->
+<!--                            Total Items: [[${totalItems}]]-->
 
 
-                            <a class="btn btn-outline-primary" th:if="${currentPage > 1}"
-                               th:href="@{'/customers/page/' + ${currentPage - 1}}">Previous-</a>
-                            <span class="btn btn-outline-primary" th:unless="${currentPage > 1}">Previous</span>
+<!--                            <a class="btn btn-outline-primary" th:if="${currentPage > 1}" th:href="@{'/customers/page/' + ${currentPage - 1}}">Previous-</a>-->
+<!--                            <span class="btn btn-outline-primary" th:unless="${currentPage > 1}">Previous</span>-->
 
 
-                            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-			<a class="btn btn-outline-primary" th:if="${currentPage != i}" th:href="@{'/customers/page/' + ${i} }">[[${i}]]</a>
-			<span class="btn btn-outline-primary" th:unless="${currentPage != i}">[[${i}]]</span>
-		</span>
+<!--&lt;!&ndash;                            <span th:each="i: ${#numbers.sequence(1, totalPages)}">&ndash;&gt;-->
+<!--&lt;!&ndash;			<a class="btn btn-outline-primary" th:if="${currentPage != i}" th:href="@{'/customers/page/' + ${i} }">[[${i}]]</a>&ndash;&gt;-->
+<!--&lt;!&ndash;			<span class="btn btn-outline-primary" th:unless="${currentPage != i}">[[${i}]]</span>&ndash;&gt;-->
+<!--&lt;!&ndash;		</span>&ndash;&gt;-->
 
-                            <a class="btn btn-outline-primary" th:if="${currentPage < totalPages}"
-                               th:href="@{'/customers/page/' + ${currentPage + 1} }">Next</a>
-                            <span class="btn btn-outline-primary" th:unless="${currentPage < totalPages}">Next</span>
+<!--                            <a class="btn btn-outline-primary" th:if="${currentPage < totalPages}" th:href="@{'/customers/page/' + ${currentPage + 1} }">Next</a>-->
+<!--                            <span class="btn btn-outline-primary" th:unless="${currentPage < totalPages}">Next</span>-->
 
 
-                        </div>
+<!--                        </div>-->
 
                     </div>
                 </div>

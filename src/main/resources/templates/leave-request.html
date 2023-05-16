@@ -56,17 +56,18 @@
             <div th:if="${totalPages > 1}">
               Total Items: [[${totalItems}]]
 
-              <a  class="btn btn-outline-primary" th:if="${currentPage > 1}" th:href="@{'/LeaveRequest/page/' + ${currentPage - 1}}">Previous-</a>
-              <span class="btn btn-outline-primary" th:unless="${currentPage > 1}">Previous</span>
+              <a  class="btn btn-light" th:if="${currentPage > 1}" th:href="@{'/LeaveRequest/page/' + ${currentPage - 1}}"><img src="https://cdn-icons-png.flaticon.com/512/318/318477.png" width="25" height="25"></a>
+              <span class="btn btn-light" th:unless="${currentPage > 1}"></span>
 
 
-              <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-			<a class="btn btn-outline-primary" th:if="${currentPage != i}" th:href="@{'/LeaveRequest/page/' + ${i} }">[[${i}]]</a>
-			<span  class="btn btn-outline-primary" th:unless="${currentPage != i}">[[${i}]]</span>
-		</span>
 
-              <a class="btn btn-outline-primary" th:if="${currentPage < totalPages}" th:href="@{'/LeaveRequest/page/' + ${currentPage + 1} }">Next</a>
-              <span class="btn btn-outline-primary" th:unless="${currentPage < totalPages}">Next</span>
+              <!--              <span th:each="i: ${#numbers.sequence(1, totalPages)}">-->
+<!--			<a class="btn btn-outline-primary" th:if="${currentPage != i}" th:href="@{'/LeaveRequest/page/' + ${i} }">[[${i}]]</a>-->
+<!--			<span  class="btn btn-outline-primary" th:unless="${currentPage != i}">[[${i}]]</span>-->
+<!--		</span>-->
+
+              <a class="btn btn-light" th:if="${currentPage < totalPages}" th:href="@{'/LeaveRequest/page/' + ${currentPage + 1} }"><img src="https://cdn-icons-png.flaticon.com/512/181/181669.png" width="25" height="25"></a>
+              <span class="btn btn-light" th:unless="${currentPage < totalPages}"></span>
 
             </div>
 

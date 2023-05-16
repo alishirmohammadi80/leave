@@ -7,9 +7,9 @@ import ir.rashasoft.leavemanagement.repository.CriticsAndSuggestionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
 
 
 @Controller
@@ -31,11 +31,13 @@ public class CriticsAndSuggestionsController {
     }
 
     @PostMapping("/criticsAndSuggestions")
-    public String criticsAndSuggestions(CriticsAndSuggestions criticsAndSuggestions, Model model) {
-
+    public String criticsAndSuggestions(CriticsAndSuggestions criticsAndSuggestions, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("user", userRepository.findAll());
+            return "critics-and-suggestions";
+        }
 
         emailService.send(criticsAndSuggestions.getUser().getEmail(), criticsAndSuggestions.getSubject(), criticsAndSuggestions.getText());
-
 
         return "g";
 

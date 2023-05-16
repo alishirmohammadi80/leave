@@ -12,7 +12,8 @@
 </head>
 <body>
 </nav-->
-<nav th:fragment="header" class="navbar navbar-expand-lg" style="background-color:#758fed; color: aliceblue;">
+<nav th:fragment= "header" class="navbar navbar-expand-lg" style="background-color:#36454F; color: aliceblue;">
+<!--<nav th:fragment="header" class="navbar navbar-expand-lg" style="background-color:#758fed; color: aliceblue;">-->
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,16 +23,18 @@
     <a style=" color  :  white;" class="nav-link"><img
             src="https://s8.uupload.ir/files/img_20230417_001003_590_yxb2.jpg" width="36" height="36"></a>
 
-    <a style=" color  :  white;" class="nav-link"><img
-            src="https://www.pngall.com/wp-content/uploads/4/House-Transparent.png" width="36" height="36"></a>
 
-    <a style="font-size:18px ;color  :  white ;" class="nav-link">ورود <img
-            src="https://cdn1.iconfinder.com/data/icons/content-10/24/user-profile-512.png" width="38" height="38"></a>
+    <a style=" color  :  white;" class="nav-link" href="/employee/leaveRequest/panel"><img
+            src="https://www.uplooder.net/img/image/64/1f869e2866085ca2358094f17f2a5d7e/House-Transparent.png" width="36" height="36"></a>
 
-    <a style="font-size:18px ;color  :  white ;" class="nav-link">خروج <img
+    <a style="font-size:18px ;color  :  white ;" class="nav-link" href="/employee/leaveRequest/enter">ورود <img
+            src="https://www.uplooder.net/img/image/14/292c3b3c7d368b17c0c296e9caa24eb9/3106406.png" width="38" height="38"></a>
+
+    <a style="font-size:18px ;color  :  white ;" class="nav-link"  href="/employee/leaveRequest/panel">خروج <img
             src="https://www.nicepng.com/png/full/191-1917686_family-dollar-logo-icon-sign-out.png" width="32"
             height="32">
     </a>
+
 </nav>
 
 </body>

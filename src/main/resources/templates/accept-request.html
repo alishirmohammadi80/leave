@@ -8,8 +8,9 @@
   <link rel="stylesheet"href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
+
 <body style="background-image: url(https://img.freepik.com/free-vector/green-monstera-leaves-with-copy-space-vector_53876-111532.jpg?w=1380&t=st=1681645503~exp=1681646103~hmac=d792a0cc47c639d998c68eaa0206f95ad9500e46aa878b1e29bbd2d4b5fc4f0a);background-size:110% ">
-<div th:insert="fragments/header :: header"></div>
+<div th:insert="fragments/manager-header :: header"></div>
 <div class="container my-2">
   <div class="card">
     <div class="ui-icon">
@@ -58,16 +59,18 @@
             Total Items: [[${totalItems}]]
 
               <a  class="btn btn-light" th:if="${currentPage > 1}" th:href="@{'/manager/leaveRequest/accept/page/' + ${currentPage - 1}}"><img src="https://cdn-icons-png.flaticon.com/512/318/318477.png" width="25" height="25"></a>
-              <span  class="btn btn-light" th:unless="${currentPage > 1}"><img src="https://cdn-icons-png.flaticon.com/512/318/318477.png" width="25" height="25"></span>
+              <span  class="btn btn-light" th:unless="${currentPage > 1}"></span>
 
 
-              <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-			<a  th:if="${currentPage != i}" th:href="@{'/LeaveRequest/accept/page/' + ${i} }">[[${i}]]</a>
-			<span   th:unless="${currentPage != i}">[[${i}]]</span>
-		</span>
+
+
+<!--              <span th:each="i: ${#numbers.sequence(1, totalPages)}">-->
+<!--			<a  th:if="${currentPage != i}" th:href="@{'/LeaveRequest/accept/page/' + ${i} }">[[${i}]]</a>-->
+<!--			<span   th:unless="${currentPage != i}">[[${i}]]</span>-->
+<!--		</span>-->
 
               <a class="btn btn-light" th:if="${currentPage < totalPages}" th:href="@{'/manager/leaveRequest/accept/page/' + ${currentPage + 1} }"><img src="https://cdn-icons-png.flaticon.com/512/181/181669.png" width="25" height="25"></a>
-              <span class="btn btn-light" th:unless="${currentPage < totalPages}"><img src="https://cdn-icons-png.flaticon.com/512/181/181669.png" width="25" height="25"></span>
+              <span class="btn btn-light" th:unless="${currentPage < totalPages}"></span>
             </div>
 
           </div>

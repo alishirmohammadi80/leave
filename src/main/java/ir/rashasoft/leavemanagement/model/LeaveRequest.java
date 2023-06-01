@@ -24,6 +24,8 @@ public class LeaveRequest {
     @Column
     private Long numberOfHours;
     @Column
+    private Date hourlyLeaveDate;
+    @Column
     private Date startDate;
     @Column
     private Date endDate;
@@ -146,5 +148,13 @@ public class LeaveRequest {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getHourlyLeaveDate() {
+        return hourlyLeaveDate;
+    }
+
+    public void setHourlyLeaveDate(Date hourlyLeaveDate) {
+        this.hourlyLeaveDate = hourlyLeaveDate;
     }
 }

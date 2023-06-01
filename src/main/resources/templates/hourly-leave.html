@@ -25,20 +25,27 @@
                             </select>
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="numberOfHours" class="col-form-label">تعداد ساعت </label>
+                            <label for="numberOfHours" class="col-form-label"> مدت </label>
                             <input type="number" th:field="*{numberOfHours}" class="form-control" id="numberOfHours"
                                    placeholder="تعداد ساعت"/>
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="startTime" class="col-form-label">ساعت شروع</label>
+                            <label for="startTime" class="col-form-label"> از ساعت</label>
                             <input type="text" th:field="*{startTime}" class="form-control" id="startTime"
                                    placeholder="00:00:00"/>
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="endTime" class="col-form-label"> ساعت پایان</label>
+                            <label for="endTime" class="col-form-label"> تا ساعت </label>
                             <input type="text" th:field="*{endTime}" class="form-control" id="endTime"
                                    placeholder="00:00:00"/>
                         </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="hourlyLeaveDate" class="col-form-label">تاریخ</label>
+                            <input type="date" th:field="*{hourlyLeaveDate}" class="form-control" id="hourlyLeaveDate"
+                                   placeholder="تعداد روز"/>
+                        </div>
+
                         <div class="form-group col-md-8">
 
               <textarea rows="4" cols="20" type="text" th:field="*{description}" class="form-control" id="description"

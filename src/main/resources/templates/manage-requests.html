@@ -10,10 +10,10 @@
 </head>
 <body style="background-image: url(https://img.freepik.com/free-vector/green-monstera-leaves-with-copy-space-vector_53876-111532.jpg?w=1380&t=st=1681645503~exp=1681646103~hmac=d792a0cc47c639d998c68eaa0206f95ad9500e46aa878b1e29bbd2d4b5fc4f0a);background-size:110% ">
 <div th:insert="fragments/manager-header :: header"></div>
-<div class="container my-10">
-    <div class="card" >
-        <div class="ui-icon" >
-            <div th:switch="${leaveRequest}" class="container my-5">
+<div class="container-fluid">
+    <div class="card">
+        <div class="ui-icon">
+            <div th:switch="${leaveRequest}" class="container-fluid">
                 <p class="ui-icon">
                 <form th:action="@{/search}" class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" name= "keyword" id = "keyword" type="text" placeholder="Search" aria-label="Search" th:value="${keyword}">
@@ -21,23 +21,25 @@
                     <i class="fa fa-download">  Export Excel </i></a>
                 </form>
                 </p>
-                <div class="col-md-auto">
-                    <div th:case="*">
+                <div class="container-fluid">
+
+                    <div class="table-responsive-xl">
                         <table class="table">
                             <thead style="background-color:#4A5963; color: aliceblue;">
                             <tr>
-                                <th>نام </th>
+                                <th>نام</th>
                                 <th>نام خانوادگی</th>
-                                <th>کدپرسنلی</th>
-                                <th> روز </th>
-                                <th>تاریخ  شروع</th>
-                                <th> تاریخ  پایان</th>
+                                <th >کدپرسنلی</th>
+                                <th >روز</th>
+                                <th>از تاریخ</th>
+                                <th>تا تاریخ</th>
                                 <th> ساعت </th>
+                                <th> تاریخ </th>
                                 <th> ساعت شروع</th>
                                 <th>  ساعت پایان</th>
-                                <th>نتیجه</th>
-                                <th>تایید</th>
-                                <th>رد</th>
+                                <th >توضیحات</th>
+                                <th >تایید</th>
+                                <th >رد</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -49,34 +51,29 @@
                                 <td th:text="${leaveRequest.getStartDate()}"></td>
                                 <td th:text="${leaveRequest.getEndDate()}"></td>
                                 <td th:text="${leaveRequest.getNumberOfHours()}"></td>
+                                <td th:text="${leaveRequest.getHourlyLeaveDate()}"></td>
                                 <td th:text="${leaveRequest.getStartTime()}"></td>
                                 <td th:text="${leaveRequest.getEndTime()}"></td>
-                                <td th:text="${leaveRequest.getRequestStatus()}"></td>
-                                <td><a th:href="@{/manager/leaveRequest/accept/{id}(id=${leaveRequest.id})}" class="btn btn-outline-primary"><img src="https://cdn-icons-png.flaticon.com/512/4315/4315445.png" width="28" height="28"></a></td>
-                                <td><a th:href="@{/manager/leaveRequest/reject/{id}(id=${leaveRequest.id})}" class="btn btn-outline-primary"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828665.png" width="28" height="28"></a></td>
+                                <td th:text="${leaveRequest.getDescription()}"></td>
+                                <td><a th:href="@{/manager/leaveRequest/accept/{id}(id=${leaveRequest.id})}" class="btn btn-outline-primary"><img src="https://cdn-icons-png.flaticon.com/512/4315/4315445.png" width="16" height="16"></a></td>
+                                <td><a th:href="@{/manager/leaveRequest/reject/{id}(id=${leaveRequest.id})}" class="btn btn-outline-primary"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828665.png" width="16" height="16"></a></td>
                             </tr>
                             </tbody>
-                        </table>
+                         </table>
+                            </div>
+
                         <div th:if="${totalPages > 1}">
                             Total Items: [[${totalItems}]]
 
-
                             <a  class="btn btn-light" th:if="${currentPage > 1}" th:href="@{'/manager/leaveRequest/inProgress/page/' + ${currentPage - 1}}"><img src="https://cdn-icons-png.flaticon.com/512/318/318477.png" width="25" height="25"></a>
                             <span  th:unless="${currentPage > 1}"></span>
-
-
 
 <!--                            <span th:each="i: ${#numbers.sequence(1, totalPages)}">-->
 <!--			<a class="btn btn-outline-primary" th:if="${currentPage != i}" th:href="@{'/manager/leaveRequest/inProgress/page/' + ${i} }">[[${i}]]</a>-->
 <!--			<span  class="btn btn-outline-primary" th:unless="${currentPage != i}">[[${i}]]</span>-->
 <!--		</span>-->
-
                             <a class="btn btn-light" th:if="${currentPage < totalPages}" th:href="@{'/manager/leaveRequest/inProgress/page/' + ${currentPage + 1} }"><img src="https://cdn-icons-png.flaticon.com/512/181/181669.png" width="25" height="25"></a>
                             <span  th:unless="${currentPage < totalPages}"></span>
-
-
-                        </div>
-
                     </div>
                 </div>
             </div>

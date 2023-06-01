@@ -9,7 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 
@@ -71,11 +70,10 @@ public class LeaveRequestService {
     }
 
 
-    public void save(LeaveRequest airlines) {
-        repository.save(airlines);
-        System.out.println(airlines.toString());
-    }
+    public void save(LeaveRequest leaveRequest) {
+        repository.save(leaveRequest);
 
+    }
 
     public void update(LeaveRequest leaveRequest) {
         repository.save(leaveRequest);
@@ -132,13 +130,13 @@ public class LeaveRequestService {
         this.save(leaveRequest);
         try {
             emailService.send("zhina.dr@gmail.com", " درخواست مرخصی :" + leaveRequest.getUser().getFirstName() + " - " + leaveRequest.getUser().getLastName()
-                    , " " + leaveRequest.getUser().getFirstName() +" : نام " +"\n" +
+
+                    , " http://185.58.242.45:8084/manager/leaveRequest/panel" +"\n" + leaveRequest.getUser().getFirstName() +" : نام " +"\n" +
                              leaveRequest.getUser().getLastName() +" : نام خانوادگی "+ "\n" +
                               leaveRequest.getUser().getPersonnelCode() +": کد پرسنلی " + "\n" +
                              leaveRequest.getNumberOfDays() + "  : تعداد روز "+"\n" +
                               leaveRequest.getStartDate() +"  : از تاریخ "+ "\n" +
                               leaveRequest.getEndDate()+   " : لغایت " + "\n" +
-
                              leaveRequest.getDescription() + " : توضیحات "
                     );
         } catch (Exception e) {
@@ -153,7 +151,7 @@ public class LeaveRequestService {
         this.save(leaveRequest);
         try {
             emailService.send("zhina.dr@gmail.com", " درخواست مرخصی :" + leaveRequest.getUser().getFirstName() + " - " + leaveRequest.getUser().getLastName()
-                    , " " + leaveRequest.getUser().getFirstName() +" : نام " +"\n" +
+                    , " http://185.58.242.45:8084/manager/leaveRequest/panel" +"\n" + leaveRequest.getUser().getFirstName() +" : نام " +"\n" +
                             leaveRequest.getUser().getLastName() +" : نام خانوادگی "+ "\n" +
                             leaveRequest.getUser().getPersonnelCode() +": کد پرسنلی " + "\n" +
                             leaveRequest.getNumberOfHours() + "  : تعداد ساعت "+"\n" +

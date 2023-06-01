@@ -30,9 +30,10 @@
                 <th>نام خانوادگی</th>
                 <th>کدپرسنلی</th>
                 <th> روز </th>
-                <th>تاریخ  شروع</th>
-                <th> تاریخ  پایان</th>
+                <th>از تاریخ</th>
+                <th>تا تاریخ</th>
                 <th> ساعت </th>
+                <th> تاریخ </th>
                 <th> ساعت شروع</th>
                 <th>  ساعت پایان</th>
                 <th>نتیجه</th>
@@ -47,6 +48,7 @@
                 <td th:text="${leaveRequest.getStartDate()}"></td>
                 <td th:text="${leaveRequest.getEndDate()}"></td>
                 <td th:text="${leaveRequest.getNumberOfHours()}"></td>
+                <td th:text="${leaveRequest.getHourlyLeaveDate()}"></td>
                 <td th:text="${leaveRequest.getStartTime()}"></td>
                 <td th:text="${leaveRequest.getEndTime()}"></td>
                 <td th:text="${leaveRequest.getRequestStatus()}"></td>

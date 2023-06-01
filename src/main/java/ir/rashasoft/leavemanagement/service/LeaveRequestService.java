@@ -155,9 +155,9 @@ public class LeaveRequestService {
                             leaveRequest.getUser().getLastName() +" : نام خانوادگی "+ "\n" +
                             leaveRequest.getUser().getPersonnelCode() +": کد پرسنلی " + "\n" +
                             leaveRequest.getNumberOfHours() + "  : تعداد ساعت "+"\n" +
+                            leaveRequest.getHourlyLeaveDate() +" :  تاریخ "+ "\n" +
                             leaveRequest.getStartTime() +"  : از ساعت "+ "\n" +
                             leaveRequest.getEndTime()+   " : لغایت " + "\n" +
-
                             leaveRequest.getDescription() + " : توضیحات "
             );
         } catch (Exception e) {

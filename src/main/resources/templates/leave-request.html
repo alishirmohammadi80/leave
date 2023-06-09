@@ -10,10 +10,10 @@
 </head>
 <body style="background-image: url(https://img.freepik.com/free-vector/green-monstera-leaves-with-copy-space-vector_53876-111532.jpg?w=1380&t=st=1681645503~exp=1681646103~hmac=d792a0cc47c639d998c68eaa0206f95ad9500e46aa878b1e29bbd2d4b5fc4f0a);background-size:110% ">
 <div th:insert="fragments/header :: header"></div>
-<div class="container my-2">
+<div class="container-fluid">
   <div class="card">
     <div class="ui-icon">
-      <div th:switch="${leaveRequest}" class="container my-5">
+      <div th:switch="${leaveRequest}" class="container-fluid">
         <p class="ui-icon">
         <form th:action="@{/employee/leaveRequest/search}" class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" name= "keyword" id = "keyword" type="text" placeholder="Search" aria-label="Search" th:value="${keyword}">
@@ -21,8 +21,9 @@
           <i class="fa fa-download">  Export Excel </i></a>
         </form>
         </p>
-        <div class="col-md-30">
-          <div th:case="*">
+        <div class="container-fluid">
+
+          <div class="table-responsive-xl">
             <table class="table">
               <thead style="background-color:#36454F; color: aliceblue;">
               <tr>
@@ -36,6 +37,7 @@
                 <th> تاریخ </th>
                 <th> ساعت شروع</th>
                 <th>  ساعت پایان</th>
+                <th >توضیحات</th>
                 <th>نتیجه</th>
               </tr>
               </thead>
@@ -51,10 +53,12 @@
                 <td th:text="${leaveRequest.getHourlyLeaveDate()}"></td>
                 <td th:text="${leaveRequest.getStartTime()}"></td>
                 <td th:text="${leaveRequest.getEndTime()}"></td>
+                <td th:text="${leaveRequest.getDescription()}"></td>
                 <td th:text="${leaveRequest.getRequestStatus()}"></td>
               </tr>
               </tbody>
             </table>
+          </div>
             <div th:if="${totalPages > 1}">
               Total Items: [[${totalItems}]]
 

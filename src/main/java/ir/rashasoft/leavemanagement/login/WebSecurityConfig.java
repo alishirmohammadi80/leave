@@ -44,20 +44,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-
+                .antMatchers("/manager/leaveRequest/panel").authenticated()
                 .antMatchers("/manager/leaveRequest/inProgress").authenticated()
                 .antMatchers("/manager/leaveRequest/accept").authenticated()
                 .antMatchers("/manager/leaveRequest/reject").authenticated()
-                .antMatchers("/manager/leaveRequest/panel").authenticated()
-                .antMatchers("/manager/leaveRequest/panel").authenticated()
+
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/manager/leaveRequest/panel")
                 .defaultSuccessUrl("/manager/leaveRequest/inProgress")
                 .defaultSuccessUrl("/manager/leaveRequest/accept")
                 .defaultSuccessUrl("/manager/leaveRequest/reject")
-                .defaultSuccessUrl("/manager/leaveRequest/panel")
                 .permitAll()
                 .and()
                 .logout()

@@ -129,9 +129,9 @@ public class LeaveRequestService {
         leaveRequest.setRequestStatus(RequestStatus.inProgress);
         this.save(leaveRequest);
         try {
-            emailService.send("zhina.dr@gmail.com", " درخواست مرخصی :" + leaveRequest.getUser().getFirstName() + " - " + leaveRequest.getUser().getLastName()
+            emailService.send("samaneh1994mohammadi@gmail.com", " درخواست مرخصی :" + leaveRequest.getUser().getFirstName() + " - " + leaveRequest.getUser().getLastName()
 
-                    , " http://185.58.242.45:8084/manager/leaveRequest/panel" +"\n" + leaveRequest.getUser().getFirstName() +" : نام " +"\n" +
+                    , " https://leave.lordtarh.ir/manager/leaveRequest/panel" +"\n" + leaveRequest.getUser().getFirstName() +" : نام " +"\n" +
                              leaveRequest.getUser().getLastName() +" : نام خانوادگی "+ "\n" +
                               leaveRequest.getUser().getPersonnelCode() +": کد پرسنلی " + "\n" +
                              leaveRequest.getNumberOfDays() + "  : تعداد روز "+"\n" +
@@ -150,8 +150,8 @@ public class LeaveRequestService {
         leaveRequest.setRequestStatus(RequestStatus.inProgress);
         this.save(leaveRequest);
         try {
-            emailService.send("zhina.dr@gmail.com", " درخواست مرخصی :" + leaveRequest.getUser().getFirstName() + " - " + leaveRequest.getUser().getLastName()
-                    , " http://185.58.242.45:8084/manager/leaveRequest/panel" +"\n" + leaveRequest.getUser().getFirstName() +" : نام " +"\n" +
+            emailService.send("samaneh1994mohammadi@gmail.com", " درخواست مرخصی :" + leaveRequest.getUser().getFirstName() + " - " + leaveRequest.getUser().getLastName()
+                    , " https://leave.lordtarh.ir/manager/leaveRequest/panel" +"\n" + leaveRequest.getUser().getFirstName() +" : نام " +"\n" +
                             leaveRequest.getUser().getLastName() +" : نام خانوادگی "+ "\n" +
                             leaveRequest.getUser().getPersonnelCode() +": کد پرسنلی " + "\n" +
                             leaveRequest.getNumberOfHours() + "  : تعداد ساعت "+"\n" +
